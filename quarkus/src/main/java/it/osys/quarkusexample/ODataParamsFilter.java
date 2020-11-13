@@ -10,6 +10,14 @@ import org.eclipse.microprofile.openapi.models.parameters.Parameter;
 import org.eclipse.microprofile.openapi.models.parameters.Parameter.In;
 import org.eclipse.microprofile.openapi.models.parameters.Parameter.Style;
 
+/**
+ * Use this class and the relative configuration on microprofile-config.properties:
+ * mp.openapi.filter=it.osys.quarkusexample.ODataParamsFilter
+ * if you want specify the OData parameter on openapi endpoint.
+ * 
+ * @author Domenico Briganti
+ *
+ */
 public class ODataParamsFilter implements OASFilter {
 
 	@Override
@@ -73,12 +81,12 @@ public class ODataParamsFilter implements OASFilter {
 			if (operation.getParameters() == null)
 				operation.setParameters(new ArrayList<>());
 
-			operation.getParameters().add(top);
-			operation.getParameters().add(skip);
-			operation.getParameters().add(count);
-			operation.getParameters().add(orderby);
-			operation.getParameters().add(filter);
-			operation.getParameters().add(search);
+			operation.addParameter(top);
+			operation.addParameter(skip);
+			operation.addParameter(count);
+			operation.addParameter(orderby);
+			operation.addParameter(filter);
+			operation.addParameter(search);
 
 		}
 

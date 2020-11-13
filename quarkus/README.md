@@ -14,20 +14,16 @@ mvn quarkus:dev
 When started, some data are loaded into an in memory database, and you can use curl to query the data:
 
 ```
-curl -X GET \
-  'http://localhost:8080/api/authors?$top=100' \
+curl 'http://localhost:8080/api/authors?$top=100' -H 'Accept: application/json'
+```
+
+```
+curl 'http://localhost:8080/api/authors?$top=10&$skip=0&$filter=contains%28firstname,%20%27do%27%29&$count=true' \
   -H 'Accept: application/json'
 ```
 
 ```
-curl -X GET \
-  'http://localhost:8080/api/authors?$top=10&$skip=0&$filter=contains%28firstname,%20%27do%27%29&$count=true' \
-  -H 'Accept: application/json'
-```
-
-```
-curl -X GET \
-  'http://localhost:8080/api/authors?$top=10&$skip=0&$filter=contains(posts/title, 'dolorem')&$count=true' \
+curl 'http://localhost:8080/api/authors?$top=10&$skip=0&$filter=contains(posts/title,'dolorem')&$count=true' \
   -H 'Accept: application/json'
 ```
 
