@@ -1,21 +1,26 @@
 <?xml version="1.0"?>
 <project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns="http://maven.apache.org/POM/4.0.0"
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
   <modelVersion>4.0.0</modelVersion>
-  <groupId>it.osys</groupId>
-  <artifactId>jaxrs-odata-quarkus-example</artifactId>
-  <version>1.0.0-SNAPSHOT</version>
+  <groupId>it.osys.jaxrs-odata</groupId>
+  <artifactId>quarkus-example</artifactId>
+  <version>1.2.1</version>
+
   <properties>
     <compiler-plugin.version>3.8.1</compiler-plugin.version>
     <maven.compiler.parameters>true</maven.compiler.parameters>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+    <maven.compiler.target>11</maven.compiler.target>
+    <maven.compiler.source>11</maven.compiler.source>
     <quarkus-plugin.version>1.9.0.Final</quarkus-plugin.version>
     <quarkus.platform.artifact-id>quarkus-universe-bom</quarkus.platform.artifact-id>
     <quarkus.platform.group-id>io.quarkus</quarkus.platform.group-id>
     <quarkus.platform.version>1.9.0.Final</quarkus.platform.version>
     <surefire-plugin.version>2.22.1</surefire-plugin.version>
   </properties>
+
   <dependencyManagement>
     <dependencies>
       <dependency>
@@ -27,6 +32,7 @@
       </dependency>
     </dependencies>
   </dependencyManagement>
+
   <dependencies>
     <dependency>
       <groupId>io.quarkus</groupId>
@@ -45,29 +51,16 @@
       <artifactId>quarkus-resteasy-jsonb</artifactId>
     </dependency>
     <dependency>
-      <groupId>it.osys</groupId>
-      <artifactId>jaxrs-odata</artifactId>
-      <version>1.2.0</version>
-      <exclusions>
-        <exclusion>
-          <artifactId>javax.annotation-api</artifactId>
-          <groupId>javax.annotation</groupId>
-        </exclusion>
-        <exclusion>
-          <artifactId>javax.ws.rs-api</artifactId>
-          <groupId>javax.ws.rs</groupId>
-        </exclusion>
-        <exclusion>
-          <artifactId>javax.persistence-api</artifactId>
-          <groupId>javax.persistence</groupId>
-        </exclusion>
-      </exclusions>
-    </dependency>
-    <dependency>
       <groupId>io.quarkus</groupId>
       <artifactId>quarkus-smallrye-openapi</artifactId>
     </dependency>
+    <dependency>
+      <groupId>it.osys</groupId>
+      <artifactId>jaxrs-odata</artifactId>
+      <version>1.2.1</version>
+    </dependency>
   </dependencies>
+
   <build>
     <plugins>
       <plugin>
@@ -97,6 +90,7 @@
       </plugin>
     </plugins>
   </build>
+
   <profiles>
     <profile>
       <id>native</id>
@@ -131,4 +125,5 @@
       </properties>
     </profile>
   </profiles>
+
 </project>
