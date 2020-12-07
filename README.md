@@ -1,6 +1,6 @@
-# Osys JaxRS OData Examples
+# JaxRS OData Examples
 
-This repository contains some example to show how the [Osys JaxRSOData](https://github.com/dometec/jaxrs-odata) library is used.
+This repository contains some example to show how the [JaxRS OData](https://github.com/dometec/jaxrs-odata) library is used.
 
 The demo creates an in memory database with this schema and a hundred of row for each table: ![ER Database Schema](erd.png)
 
